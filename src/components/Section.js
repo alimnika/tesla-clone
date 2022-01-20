@@ -4,17 +4,15 @@ import styled from "styled-components";
 function Section({title, description, leftButton, rightButton, backgroundImg}) {
   return (
     <Container bgImage={backgroundImg}>
-      {/* <Fade  bottom> */}
       <Text>
-        <h1>Model S</h1>
-        <p>Order Online for Touchless Delivery</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </Text>
-
-      {/* </Fade> */}
       <ButtonWrapper>
         <Buttons>
-          <LeftButton>Custom Order</LeftButton>
-          <RightButton>Existing Inventory</RightButton>
+          <LeftButton>{leftButton}</LeftButton> 
+          {rightButton && <RightButton>{rightButton}</RightButton> }
+          
         </Buttons>
         <DownArror src="/image/arrow-down.svg" />
       </ButtonWrapper>
@@ -27,7 +25,7 @@ export default Section;
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: url("/image/model-s.jpg");
+  background-image: ${props => `url('/image/${props.bgImage}')`};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
