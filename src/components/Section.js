@@ -1,13 +1,15 @@
 import {React} from "react";
 import styled from "styled-components";
-// import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 function Section({title, description, leftButton, rightButton, backgroundImg}) {
   return (
     <Container bgImage={backgroundImg}>
+      <Fade >
       <Text>
         <h1>{title}</h1>
         <p>{description}</p>
       </Text>
+      </Fade>
       <ButtonWrapper>
         <Buttons>
           <LeftButton>{leftButton}</LeftButton> 
@@ -38,7 +40,9 @@ const Text = styled.div`
   padding: 20vh;
   text-align: center;
 `;
-const ButtonWrapper = styled.div``;
+const ButtonWrapper = styled.div`
+
+`;
 const LeftButton = styled.div`
   background-color: #1e1e2a;
   height: 40px;
@@ -66,6 +70,9 @@ const DownArror = styled.img`
   overflow-x:hidden;
 `;
 const Buttons = styled.div`
-  display: flex;
-  margin-bottom: 30px;
+display:flex;
+margin-bottom:30px;
+@media(max-width:768px){
+  flex-direction:column;
+}
 `;
