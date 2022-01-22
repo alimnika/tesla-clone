@@ -48,7 +48,7 @@ function Home() {
         rightButton="Learn More"
         backgroundImg="solar-roof.jpg"
         />
-           <Section 
+           <Section cname='lastPage'
         title="Accessories"
         description=""
         leftButton="Shop Now"

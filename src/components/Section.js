@@ -1,7 +1,7 @@
 import {React} from "react";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
-function Section({title, description, leftButton, rightButton, backgroundImg}) {
+function Section({title, description, leftButton, rightButton, backgroundImg, cname}) {
   return (
     <Container bgImage={backgroundImg}>
       <Fade >
@@ -14,9 +14,16 @@ function Section({title, description, leftButton, rightButton, backgroundImg}) {
         <Buttons>
           <LeftButton>{leftButton}</LeftButton> 
           {rightButton && <RightButton>{rightButton}</RightButton> }
-          
         </Buttons>
-        <DownArror src="/image/arrow-down.svg" />
+        {!cname ? <DownArror src="/image/arrow-down.svg" /> : <Footer>
+        <li>Tesla © 2022</li>
+        <li>Privacy & Legal</li>
+        <li>Contact</li>
+        <li>Careers</li>
+        <li>News</li>
+        <li>Engage</li>
+        <li>Locations</li>
+      </Footer> }
       </ButtonWrapper>
     </Container>
   );
@@ -35,6 +42,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow-x: hidden;
 `;
 const Text = styled.div`
   padding: 20vh;
@@ -56,23 +64,38 @@ const LeftButton = styled.div`
   text-transform: uppercase;
   font-size: 12px;
   cursor: pointer;
-  margin:8px;
+  margin-left:8px;
 `;
 const RightButton = styled(LeftButton)`
   background-color: #eeeeee;
   color: #1e1e2a;
 `;
 const DownArror = styled.img`
-  margin-top: 20px;
+  margin-top: 30px;
   height: 40px;
-  color: white;
+  // colorwhite;
   animation: animateDown infinite 1.5s;
   overflow-x:hidden;
 `;
 const Buttons = styled.div`
 display:flex;
+align-items:center;
+justify-content: center;
 margin-bottom:30px;
 @media(max-width:768px){
   flex-direction:column;
 }
 `;
+const Footer = styled.div`
+display:flex;
+
+li{
+  list-style: none;
+  padding: 10px 8px;
+  font-size: 14px;
+  cursor:pointer;
+  font-family: "Segoe UI";
+  font-weight: 600;
+  color: #5F6168;
+}
+`
